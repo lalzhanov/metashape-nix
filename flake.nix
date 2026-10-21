@@ -15,9 +15,10 @@
         pkgs = import nixpkgs { inherit system; };
       in
       {
-        packages = {
+        packages = rec {
           metashape = pkgs.callPackage ./package.nix { pro = false; };
           metashape-pro = pkgs.callPackage ./package.nix { pro = true; };
+          default = metashape;
         };
       }
     );
